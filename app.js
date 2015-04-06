@@ -134,13 +134,14 @@ var getAnswerers = function(answerers) {
 		};
 
 	var result = $.ajax({
-		url: "http://api.stackexchange.com/2.2/tags/top-answerers",
+		url: "http://api.stackexchange.com/2.2/tags/" + request.tagged + "/top-answerers/month",
 		data: request,
 		dataType: "jsonp",
 		type: "GET"
 	})
 	.done(function(result){
-		var searchResults = showSearchResults(request.tag, result.items.length);
+			console.log(request);
+		var searchResults = showSearchResults(request.tagged, result.items.length);
 		$('.search-results').html(searchResults);
 
 		$.each(result.items, function(i, item){
