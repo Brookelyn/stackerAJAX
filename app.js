@@ -13,7 +13,7 @@ $(document).ready( function() {
 		$('.results').html('');
 		// get the value of the tags the user submitted
 		var tags = $(this).find("input[name='answerers']").val();
-		getTopAnswerers(tags);
+		getAnswerers(tags);
 	});
 });
 
