@@ -140,7 +140,7 @@ var getAnswerers = function(answerers) {
 		type: "GET"
 	})
 	.done(function(result){
-			console.log(request);
+			console.log(result);
 		var searchResults = showSearchResults(request.tagged, result.items.length);
 		$('.search-results').html(searchResults);
 
