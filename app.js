@@ -132,6 +132,7 @@ var getAnswerers = function(answerers) {
 		site: 'stackoverflow',
 		period: "month"
 		};
+		console.log(request.tagged);
 
 	var result = $.ajax({
 		url: "http://api.stackexchange.com/2.2/tags/top-answerers",
@@ -140,7 +141,7 @@ var getAnswerers = function(answerers) {
 		type: "GET"
 	})
 	.done(function(result){
-		var searchResults = showSearchResults(request.tag, result.items.length);
+		var searchResults = showSearchResults(request.tagged, result.items.length);
 		$('.search-results').html(searchResults);
 
 		$.each(result.items, function(i, item){
