@@ -132,15 +132,15 @@ var getAnswerers = function(answerers) {
 		site: 'stackoverflow',
 		period: "month"
 		};
-		console.log(request.tagged);
 
 	var result = $.ajax({
-		url: "http://api.stackexchange.com/2.2/tags/top-answerers",
+		url: "http://api.stackexchange.com/2.2/tags/" + request.tagged + "/top-answerers/month",
 		data: request,
 		dataType: "jsonp",
 		type: "GET"
 	})
 	.done(function(result){
+			console.log(request);
 		var searchResults = showSearchResults(request.tagged, result.items.length);
 		$('.search-results').html(searchResults);
 
