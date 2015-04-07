@@ -57,13 +57,13 @@ var showAnswerers = function(answerers) {
 	var result = $('.templates .answerer').clone();
 
 	// set answerer name
-	var answererName = result.find('.answerer-name');
-	answererName.attr('href', answerers.link);
-	answererName.text(answerers.display_name);
+	var answererName = result.find('.answerer-name a');
+	answererName.attr('href', answerers.user.link);
+	answererName.text(answerers.user.display_name);
 
 	// set reputation
 	var reputation = result.find('.reputation');
-	reputation.text(answerers.reputation);
+	reputation.text(answerers.user.reputation);
 
 	// set post count
 	var postCount = result.find('.post-count');
@@ -72,6 +72,8 @@ var showAnswerers = function(answerers) {
 	// set score
 	var score = result.find('.score');
 	score.text(answerers.score);
+
+	return result;
 };
 
 
@@ -140,7 +142,6 @@ var getAnswerers = function(answerers) {
 		type: "GET"
 	})
 	.done(function(result){
-			console.log(result);
 		var searchResults = showSearchResults(request.tagged, result.items.length);
 		$('.search-results').html(searchResults);
 
